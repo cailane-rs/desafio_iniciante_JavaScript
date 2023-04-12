@@ -24,6 +24,21 @@
     let linhas;
     let colunas;
 
-    recebeValores("linhas", linhas);
-    recebeValores("colunas", colunas);
+    function constroiMatriz(linhas, colunas) {
+
+        let matriz = [];
+        let valorDoIndice = 1;
+
+        for(let i = 0; i < linhas; i++) {
+            matriz[i] = [];
+
+            for(let j = 0; j < colunas; j++) {
+                matriz[i][j] = valorDoIndice;
+                valorDoIndice++;
+            }
+        }
+        console.log(matriz);
+    }
+
+    constroiMatriz(recebeValores("linhas", linhas), recebeValores("colunas", colunas));
 </script>
