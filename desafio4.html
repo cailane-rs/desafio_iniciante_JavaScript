@@ -1,0 +1,29 @@
+<script>
+
+    alert("Calcular a soma de todos os valores de uma matriz na mão, é mole?! Relaxa que o robô Desenvolve faz isso para você!");
+
+    function recebeValores(nomeDoValor, quantidade) {
+
+        let respostaDoUsuario = prompt(`Informe o número de ${nomeDoValor}:`);
+        quantidade = parseInt(respostaDoUsuario);
+
+        let valorInvalido = true;
+
+        while (valorInvalido) {
+            if (quantidade >= 1 && quantidade <= 100) {
+                console.log(quantidade);
+                return quantidade;
+                valorInvalido = false;
+            } else {
+                respostaDoUsuario = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
+                quantidade = parseInt(respostaDoUsuario);
+            }
+        }
+    }
+
+    let linhas;
+    let colunas;
+
+    recebeValores("linhas", linhas);
+    recebeValores("colunas", colunas);
+</script>
