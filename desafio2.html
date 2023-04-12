@@ -1,0 +1,24 @@
+<script>
+    function recebeNumero() {
+
+        let numero = prompt("Informe um número de 1 a 100, por favor:");
+
+        let valorInvalido = true;
+
+        while (valorInvalido) {
+            if (numero >= 1 && numero <= 100) {
+                console.log(numero);
+                return numero;
+                valorInvalido = false;
+            } else {
+                numero = prompt("Elemento inválido, por favor insira um número de 1 a 10!");
+            }
+        }
+    }
+
+    // function teste(numero) {
+    //     document.write(numero);
+    // }
+
+    // teste(recebeNumero());
+</script>
