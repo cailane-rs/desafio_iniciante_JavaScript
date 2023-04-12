@@ -1,5 +1,14 @@
 <script>
 
+    function pulaLinha() {
+        document.write("<br>")
+    }
+
+    function exibeConteudo(texto) {
+        document.write(texto);
+        pulaLinha();
+    }
+
     function recebeNumero() {
 
         let respostaDoUsuario = prompt("Informe um número de 1 a 10, por favor:");
@@ -19,5 +28,33 @@
         }
     }
 
-    recebeNumero();
+    function constroiPiramide(numeroDeNiveis) {
+        let niveisPiramide = [];
+        const espaco = "&nbsp;";
+        const bloco = "#";
+        let qtdBlocoPorNivel = 1;
+        let blocosAMaisPorNivel = 2;
+        let qtdEspacoPorNivel = numeroDeNiveis - 1;
+
+        for (let i = 0; i < numeroDeNiveis; i++) {
+
+            let nivel = "";
+
+            for(let k = 0; k < qtdEspacoPorNivel; k++) {
+                nivel += espaco + espaco;
+            }
+
+            for (let j = 0; j < qtdBlocoPorNivel; j++) {
+                nivel += bloco;
+            }
+
+            niveisPiramide.push(nivel);
+
+            exibeConteudo(niveisPiramide[i]);
+            qtdBlocoPorNivel += blocosAMaisPorNivel;
+            qtdEspacoPorNivel--;
+        }
+    }
+
+    constroiPiramide(recebeNumero());
 </script>
