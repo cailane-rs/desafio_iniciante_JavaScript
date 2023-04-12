@@ -1,0 +1,23 @@
+<script>
+
+    function recebeNumero() {
+
+        let respostaDoUsuario = prompt("Informe um número de 1 a 10, por favor:");
+        let numDeNiveisPiramide = parseInt(respostaDoUsuario);
+
+        let valorInvalido = true;
+
+        while (valorInvalido) {
+            if (numDeNiveisPiramide >= 1 && numDeNiveisPiramide <= 100) {
+                console.log(numDeNiveisPiramide);
+                return numDeNiveisPiramide;
+                valorInvalido = false;
+            } else {
+                respostaDoUsuario = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
+                numDeNiveisPiramide = parseInt(respostaDoUsuario);
+            }
+        }
+    }
+
+    recebeNumero();
+</script>
