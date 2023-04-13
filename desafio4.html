@@ -10,8 +10,7 @@
         let valorInvalido = true;
 
         while (valorInvalido) {
-            if (quantidade >= 1 && quantidade <= 100) {
-                console.log(quantidade);
+            if (quantidade >= 1 && quantidade <= 1000) {
                 return quantidade;
                 valorInvalido = false;
             } else {
@@ -29,15 +28,32 @@
         let matriz = [];
         let valorDoIndice = 1;
 
-        for(let i = 0; i < linhas; i++) {
+        for (let i = 0; i < linhas; i++) {
             matriz[i] = [];
 
-            for(let j = 0; j < colunas; j++) {
+            for (let j = 0; j < colunas; j++) {
                 matriz[i][j] = valorDoIndice;
                 valorDoIndice++;
             }
+
+            somaValoresDoArray(matriz[i], i);
         }
         console.log(matriz);
+        console.log(valoresDaMatriz);
+        somaValoresDaMatriz();
+    }
+
+    let valoresDaMatriz = [];
+
+    function somaValoresDoArray(array, indice) {
+
+        return valoresDaMatriz[indice] = array.reduce((acum, atual) => atual + acum, 0);
+
+    }
+
+    function somaValoresDaMatriz() {
+        document.write("A soma de todos os valores da Matriz é: " +  valoresDaMatriz.reduce((acum, atual) => atual + acum, 0));
+
     }
 
     constroiMatriz(recebeValores("linhas", linhas), recebeValores("colunas", colunas));
