@@ -24,8 +24,21 @@
     }
 
     function imprimeSequenciaNumerica(numeroMaximo) {
-        for(let numExibido = 1; numExibido <= numeroMaximo; numExibido++) {
-            exibeConteudo(numExibido);
+
+        let multiploDe3 = "Fizz";
+        let multiploDe5 = "Buzz";
+        let multiploDeAmbos = multiploDe3 + multiploDe5;
+
+        for (let numExibido = 1; numExibido <= numeroMaximo; numExibido++) {
+            if (numExibido % 3 == 0 && numExibido % 5 == 0) {
+                exibeConteudo(multiploDeAmbos);
+            } else if (numExibido % 3 == 0) {
+                exibeConteudo(multiploDe3);
+            } else if (numExibido % 5 == 0) {
+                exibeConteudo(multiploDe5);
+            } else {
+                exibeConteudo(numExibido);
+            }
         }
     }
 
