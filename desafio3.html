@@ -1,36 +1,28 @@
 <script>
 
-    function pulaLinha() {
-        document.write("<br>")
-    }
-
-    function exibeConteudo(texto) {
-        document.write(texto);
-        pulaLinha();
+    function exibeConteudo(conteudo) {
+        document.write(conteudo);
+        document.write("<br>");
     }
 
     function recebeNumero() {
 
-        let respostaDoUsuario = prompt("Informe um número de 1 a 10, por favor:");
-        let numDeNiveisPiramide = parseInt(respostaDoUsuario);
+        let numDeNiveisPiramide = prompt("Informe um número de 1 a 10, por favor:");
 
         let valorInvalido = true;
-
         while (valorInvalido) {
             if (numDeNiveisPiramide >= 1 && numDeNiveisPiramide <= 10) {
-                console.log(numDeNiveisPiramide);
-                return numDeNiveisPiramide;
+                return parseInt(numDeNiveisPiramide);
                 valorInvalido = false;
             } else {
-                respostaDoUsuario = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
-                numDeNiveisPiramide = parseInt(respostaDoUsuario);
+                numDeNiveisPiramide = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
             }
         }
     }
 
     function constroiPiramide(numeroDeNiveis) {
         let niveisPiramide = [];
-        const espaco = "&nbsp;";
+        const espacoDuplo = "&nbsp;&nbsp;";
         const bloco = "#";
         let qtdBlocoPorNivel = 1;
         let blocosAMaisPorNivel = 2;
@@ -38,17 +30,17 @@
 
         for (let i = 0; i < numeroDeNiveis; i++) {
 
-            let nivel = "";
+            let conteudoDoNivel = "";
 
-            for(let k = 0; k < qtdEspacoPorNivel; k++) {
-                nivel += espaco + espaco;
+            for(let j = 0; j < qtdEspacoPorNivel; j++) {
+                conteudoDoNivel += espacoDuplo;
             }
 
-            for (let j = 0; j < qtdBlocoPorNivel; j++) {
-                nivel += bloco;
+            for (let k = 0; k < qtdBlocoPorNivel; k++) {
+                conteudoDoNivel += bloco;
             }
 
-            niveisPiramide.push(nivel);
+            niveisPiramide.push(conteudoDoNivel);
 
             exibeConteudo(niveisPiramide[i]);
             qtdBlocoPorNivel += blocosAMaisPorNivel;

@@ -1,43 +1,44 @@
 <script>
 
-  function pulaLinha() {
-      document.write("<br>")
-  }
+    function exibeConteudo(conteudo) {
+        document.write(conteudo);
+        document.write("<br>");
+    }
 
-  function exibeConteudo(texto) {
-      document.write(texto);
-      pulaLinha();
-  }
+    function recebeNumeroDeDegraus() {
 
-  function recebeNumeroDeDegraus() {
+        let numeroDeDegraus = prompt("Informe um número de 1 a 10, por favor:");
 
-      let numeroDeDegraus = prompt("Informe um número de 1 a 10, por favor:");
+        let dadoInvalido = true;
+        while (dadoInvalido) {
+            if (numeroDeDegraus >= 1 && numeroDeDegraus <= 10) {
+                return parseInt(numeroDeDegraus);
+                dadoInvalido = false;
+            } else {
+                numeroDeDegraus = prompt("Elemento inválido, por favor insira um número de 1 a 10!");
+            }
+        }
+    }
 
-      if (numeroDeDegraus >= 1 && numeroDeDegraus <= 10) {
-          return numeroDeDegraus;
-      } else {
-          prompt("Elemento inválido, por favor insira um número de 1 a 10!");
-      }
-  }
+    function constroiEscada(qtdDedegraus) {
 
-  function constroiEscada(qtdDedegraus) {
+        let escada = [];
+        let qtdBlocosPorNivel = 0;
+        const bloco = "#";
 
-      let escada = [];
-      let qtdBlocosPorNivel = 0;
+        for (let i = 0; i < qtdDedegraus; i++) {
 
-      for (let i = 0; i < qtdDedegraus; i++) {
+            qtdBlocosPorNivel++;
+            let conteudoDoDegrau = "";
 
-          escada[i] = [];
-          qtdBlocosPorNivel++;
+            for (let j = 0; j < qtdBlocosPorNivel; j++) {
 
-          for (let j = 0; j < qtdBlocosPorNivel; j++) {
+                conteudoDoDegrau += bloco;
+            }
+            escada.push(conteudoDoDegrau);
+            exibeConteudo(escada[i]);
+        }
+    }
 
-              escada[i].push("#");
-          }
-
-          exibeConteudo(escada[i]);
-      }
-  }
-
-  constroiEscada(recebeNumeroDeDegraus());
+    constroiEscada(recebeNumeroDeDegraus());
 </script>

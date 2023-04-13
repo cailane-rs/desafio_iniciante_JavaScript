@@ -1,28 +1,21 @@
 <script>
 
-    function pulaLinha() {
-        document.write("<br><br>")
-    }
-
     function exibeTexto(texto) {
         document.write(texto);
-        pulaLinha();
+        document.write("<br><br>");
     }
 
     function recebeNumero() {
 
-        let resposta = prompt("Informe um número de 1 a 100, por favor:");
-        let numero = parseInt(resposta);
+        let numero = prompt("Informe um número de 1 a 100, por favor:");
 
         let valorInvalido = true;
-
         while (valorInvalido) {
             if (numero >= 1 && numero <= 100) {
-                return numero;
+                return parseInt(numero);
                 valorInvalido = false;
             } else {
-                resposta = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
-                numero = parseInt(resposta);
+                numero = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
             }
         }
     }
@@ -36,12 +29,11 @@
             sequenciaNumeros.push(numeroAtual);
             numeroAtual--;
         }
+        exibeTexto(`Aqui estão todos os números inteiros e positivos que são iguais ou menores que ${numero}: (${sequenciaNumeros})`);
 
         const somaDosNumerosDoArray = sequenciaNumeros.reduce((acum, atual) => atual + acum, 0);
-        exibeTexto(`Aqui estão todos os números inteiros e positivos que são iguais ou menores que ${numero}: (${sequenciaNumeros})`);
         exibeTexto(`Se você somar todos esses números, o resultado é ${somaDosNumerosDoArray}!`);
     }
-
 
     incrementaArray(recebeNumero());
 </script>
