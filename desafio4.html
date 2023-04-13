@@ -1,60 +1,26 @@
 <script>
+    const numAleatorioDeLinhas = Math.ceil(Math.random() * 1000);
+    console.log("Número de linhas:" + numAleatorioDeLinhas);
 
-    alert("Calcular a soma de todos os valores de uma matriz na mão, é mole?! Relaxa que o robô Desenvolve faz isso para você!");
-
-    function recebeValores(nomeDoValor, quantidade) {
-
-        let respostaDoUsuario = prompt(`Informe o número de ${nomeDoValor}:`);
-        quantidade = parseInt(respostaDoUsuario);
-
-        let valorInvalido = true;
-
-        while (valorInvalido) {
-            if (quantidade >= 1 && quantidade <= 1000) {
-                return quantidade;
-                valorInvalido = false;
-            } else {
-                respostaDoUsuario = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
-                quantidade = parseInt(respostaDoUsuario);
-            }
-        }
-    }
-
-    let linhas;
-    let colunas;
-
-    function constroiMatriz(linhas, colunas) {
+    function constroiMatriz(numDeLinhas) {
 
         let matriz = [];
-        let valorDoIndice = 1;
+        let somaDeValoresDoArray = 0;
+        let somaDeValoresDaMatriz = 0;
 
-        for (let i = 0; i < linhas; i++) {
+        for (let i = 0; i < numDeLinhas; i++) {
             matriz[i] = [];
+            const numAleatorioDeColunas = Math.ceil(Math.random() * 1000);
 
-            for (let j = 0; j < colunas; j++) {
-                matriz[i][j] = valorDoIndice;
-                valorDoIndice++;
+            for (let j = 0; j < numAleatorioDeColunas; j++) {
+                let valorAleatorio = Math.floor(Math.random() * 2001) - 1000;
+                matriz[i][j] = valorAleatorio;
             }
-
-            somaValoresDoArray(matriz[i], i);
+            somaDeValoresDoArray = matriz[i].reduce((acum, atual) => atual + acum, 0);
+            somaDeValoresDaMatriz += somaDeValoresDoArray;
         }
         console.log(matriz);
-        console.log(valoresDaMatriz);
-        somaValoresDaMatriz();
+        console.log(`Soma dos valores da matriz: ${somaDeValoresDaMatriz}`);
     }
-
-    let valoresDaMatriz = [];
-
-    function somaValoresDoArray(array, indice) {
-
-        return valoresDaMatriz[indice] = array.reduce((acum, atual) => atual + acum, 0);
-
-    }
-
-    function somaValoresDaMatriz() {
-        document.write("A soma de todos os valores da Matriz é: " +  valoresDaMatriz.reduce((acum, atual) => atual + acum, 0));
-
-    }
-
-    constroiMatriz(recebeValores("linhas", linhas), recebeValores("colunas", colunas));
+    constroiMatriz(numAleatorioDeLinhas);
 </script>
