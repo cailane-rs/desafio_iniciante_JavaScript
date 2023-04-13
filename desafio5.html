@@ -1,0 +1,33 @@
+<script>
+    function recebeNumero() {
+
+        let numeroMax = prompt("Informe um número de 1 a 100, por favor:");
+        parseInt(numeroMax);
+
+        let valorInvalido = true;
+
+        while (valorInvalido) {
+            if (numeroMax >= 1 && numeroMax <= 100) {
+                console.log(numeroMax);
+                return numeroMax;
+                valorInvalido = false;
+            } else {
+                numeroMax = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
+                parseInt(numeroMax);
+            }
+        }
+    }
+
+    function exibeConteudo(texto) {
+        document.write(texto);
+        document.write("<br>");
+    }
+
+    function imprimeSequenciaNumerica(numeroMaximo) {
+        for(let numExibido = 1; numExibido <= numeroMaximo; numExibido++) {
+            exibeConteudo(numExibido);
+        }
+    }
+
+    imprimeSequenciaNumerica(recebeNumero());
+</script>
