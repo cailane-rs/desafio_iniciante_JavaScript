@@ -14,9 +14,9 @@
             if (numeroDeDegraus >= 1 && numeroDeDegraus <= 10) {
                 return parseInt(numeroDeDegraus);
                 dadoInvalido = false;
-            } else {
-                numeroDeDegraus = prompt("Elemento inválido, por favor insira um número de 1 a 10!");
-            }
+            } //desapega de else;
+            numeroDeDegraus = prompt("Elemento inválido, por favor insira um número de 1 a 10!");
+            return;
         }
     }
 
@@ -41,4 +41,7 @@
     }
 
     constroiEscada(recebeNumeroDeDegraus());
+
+//alterar para repeat;
+
 </script>

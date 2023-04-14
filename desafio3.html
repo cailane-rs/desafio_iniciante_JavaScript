@@ -12,7 +12,7 @@
         let valorInvalido = true;
         while (valorInvalido) {
             if (numDeNiveisPiramide >= 1 && numDeNiveisPiramide <= 10) {
-                return parseInt(numDeNiveisPiramide);
+                return +numDeNiveisPiramide; // o "+" converte para inteiro;
                 valorInvalido = false;
             } else {
                 numDeNiveisPiramide = prompt("Elemento inválido, por favor insira um número de 1 a 100!");
@@ -32,6 +32,7 @@
 
             let conteudoDoNivel = "";
 
+            // esses 2 for não poderiam ser uma função?
             for(let j = 0; j < qtdEspacoPorNivel; j++) {
                 conteudoDoNivel += espacoDuplo;
             }
